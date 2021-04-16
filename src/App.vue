@@ -8,10 +8,23 @@
         <span class="text-sm font-semibold text-gray-500">Register</span>
       </div>
     </div>
+ 
   </div>
+  <Navbar >Navbar</Navbar>
+     
+
+   
+    <ul>
+      <li><router-link to="/">Home</router-link> |</li>
+      <li><router-link to="/product">Product</router-link> |</li>
+     
+     
+    </ul>
+  
+  <router-view/>
   <!-- <HelloWorld msg="introduction"/> -->
   <!-- <Login>test login</Login> -->
-  <Navbar >Navbar</Navbar>
+  
   <!-- <Intro msg="Intro "/> -->
 </template>
 
