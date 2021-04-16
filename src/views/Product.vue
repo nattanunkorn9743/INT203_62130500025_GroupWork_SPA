@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-   <p>product page jaa</p>
+  
 
     <div class="max-w-4xl mx-auto my-10 justify-items-center justify">
       <!-- Topic -->
