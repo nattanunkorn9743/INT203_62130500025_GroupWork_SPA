@@ -20,9 +20,10 @@
         </div>
         <!-- <second> -->
       </div>
-      <div class="flex items-center justify-end w-full ml-32 mr-32 text-black">
+      <router-link
+            to="/basket" class="flex items-center justify-end w-full ml-32 mr-32 text-black">
         <i class="medium material-icons">local_grocery_store</i>
-      </div>
+      </router-link>
     </div>
 
     <!-- nav2 -->
@@ -35,7 +36,7 @@
         />
       </div>
       <nav class="flex justify-between">
-        <div class="flex shadow w-autoitems-center">
+        <div class="flex items-center w-auto shadow">
           <div
             class="flex-auto p-3 m-2 text-sm font-semibold text-center uppercase min-w-64 hover:bg-blue-900 hover:text-white"
           >
