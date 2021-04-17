@@ -47,16 +47,16 @@
           >
             <router-link to="/product">Product</router-link>
           </div>
-          <div
+          <router-link to="/storelocation"
             class="flex-auto p-3 m-2 text-sm font-semibold text-center uppercase min-w-64 hover:bg-blue-900 hover:text-white"
           >
             store location
-          </div>
-          <div
+          </router-link>
+          <router-link to="/aboutUs"
             class="flex-auto p-3 m-2 text-sm font-semibold text-center uppercase min-w-64 hover:bg-blue-900 hover:text-white"
           >
             About us
-          </div>
+          </router-link>
           <div
             class="flex-auto p-3 m-2 text-sm font-semibold text-center uppercase min-w-64 hover:bg-blue-900 hover:text-white"
           >

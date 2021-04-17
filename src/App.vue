@@ -1,13 +1,7 @@
 <template>
-
-  <Navbar >Navbar</Navbar>
-
-  
+ <Navbar >Navbar</Navbar>
   <router-view/>
-  <!-- <HelloWorld msg="introduction"/> -->
-  <!-- <Login>test login</Login> -->
-  
-  <!-- <Intro msg="Intro "/> -->
+
 </template>
 
 <script>

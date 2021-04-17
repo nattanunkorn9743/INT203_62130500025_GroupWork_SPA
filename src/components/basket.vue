@@ -6,19 +6,20 @@
     class="fixed inset-0 z-40 flex items-center object-fill object-center h-auto ml-56 mr-56 overflow-auto animated"
   >
     <div
-      class="fixed flex flex-col justify-end w-auto m-auto align-top bg-blue-300 rounded shadow-2xl hp-8 animated fadeInUp md:relative pin-b pin-x"
+      class="fixed flex flex-col justify-end m-auto align-top bg-blue-300 rounded shadow-2xl w-6xl hp-8 animated fadeInUp md:relative pin-b pin-x"
     >
       <div class="flex justify-end material-icons" @click="close">
         highlight_off
       </div>
 
-      <div class="content">
-        <ul class="w-96 max-h-auto">
-          <li>pic1</li>
-          <li>pic2</li>
-          <li>pic3</li>
-          <li>pic4</li>
-        </ul>
+      
+      <div class="lex-wrap p-9 justify-items-start max-w-7xl">
+        <div>1.name is ....<img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div>
+        <div>2 <img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div>
+        <div>3<img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div>
+        <div>4<img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div>
+        <div>5<img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div>
+        <div>6<img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div>
       </div>
     </div>
   </div>
