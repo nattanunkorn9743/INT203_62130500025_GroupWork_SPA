@@ -1,0 +1,22 @@
+{
+  "User": [
+    {
+      "id": 1,
+      "name": "Patorn bunsawat",
+      "email":"patorn@hotmail.com",
+      "wallet": 2000
+    },
+    {
+      "id": 2,
+      "name": "Nattanunkorn bunsawat",
+      "email":"nattanunkorn@hotmail.com",
+      "wallet": 5000
+    },
+    {
+        "id": 3,
+        "name": "Karn kamol",
+        "email":"karn@hotmail.com",
+        "wallet": 4000
+      }
+  ]
+}
