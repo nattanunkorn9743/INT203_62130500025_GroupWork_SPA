@@ -20,7 +20,7 @@
           >
         </div>
         <!-- login leaw --> 
-          <div v-show="isLogin" v-on:click="login"
+          <div v-show="isShow" @clickSign="login"
             to="/basket" class="flex items-center justify-end w-full text-gray-600">
             <i class="medium material-icons">exit_to_app</i>
           </div>
@@ -92,20 +92,24 @@
 <script>
 export default {
   name: 'Navbar',
-  // props: {
-  //   // msg: String
-  // }
+//   props: {
+//     showLogin:Boolean
+// },
   data() {
     return {
       
-      isLogin: false,
+      // isLogin: false,
       
     }
   },
   methods: {
     login(){
       this.isLogin = true;
-    }
+    },
+    // showLogin() {
+    // this.$emit('show-logout');
+    // this.isLogin = true;
+    // }
   }
 };
 </script>
