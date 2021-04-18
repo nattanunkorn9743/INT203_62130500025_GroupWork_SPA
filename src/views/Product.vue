@@ -1,74 +1,57 @@
 <template>
   <div class="product">
-  
-
     <div class="max-w-4xl mx-auto my-10 justify-items-center justify">
       <!-- Topic -->
       <!-- <div class="p-2 text-4xl font-bold text-center bg-gradient-to-r from-purple-300 via-pink-500 to-blue-300">Gallery
         ( {{countLike}} )</div> -->
 
-    
-
-
-
-
- <div  v-for="task in tasks" :key="task.title" class="items-center ">
-
-         <!-- preview -->
-    <div v-show="preview.isShowPreview">
-      <div class="fixed inset-0 z-40 flex items-center object-fill object-center overflow-auto animated">
-        <div class="fixed flex flex-col justify-end w-full max-w-md p-8 m-auto align-top bg-blue-400 rounded shadow-2xl animated fadeInUp md:relative pin-b pin-x">
-          
-          <div class="m-10 border-8 rounded shadow-xl ">
-            <!--  picture -->
-            <div class="text-center">
-              <img :src="preview.previewSrc" class="my-24 img-responsive">
-              <p>{{task.title}}</p>
+      <div v-for="(task,index) in tasks" :key="task.title" class="items-center">
+        <!-- preview -->
+        <div v-show="preview.isShowPreview">
+          <div
+            class="fixed inset-0 z-40 flex items-center object-fill object-center overflow-auto animated"
+          >
+            <div
+              class="fixed flex flex-col justify-end w-full max-w-md p-8 m-auto align-top bg-blue-400 rounded shadow-2xl animated fadeInUp md:relative pin-b pin-x"
+            >
+              <div class="m-10 border-8 rounded shadow-xl">
+                <!--  picture -->
+                <div class="text-center">
+                  <img :src="preview.previewSrc" class="my-24 img-responsive" />
+                  <p>{{ task.title }}</p>
+                </div>
+              </div>
             </div>
-  
           </div>
         </div>
-        
-      </div>
-      
-    </div>
 
-
-
-
-
-
-        <div class="rounded shadow-xl gallery ">
+        <div class="rounded shadow-xl gallery">
           <!--  picture -->
           <div>
-            <button v-on:click="showPreview(index)"
-              class="transition duration-500 ease-in-out transform bg-blue-400 justify-items-start hover:bg-white hover:-translate-y-2 hover:scale-110 ">
-              <img v-bind:src="task.image" class="h-44 w-36">
-              {{task.title}}
-
+            <button
+              v-on:click="showPreview(index)"
+              class="transition duration-500 ease-in-out transform bg-blue-400 justify-items-start hover:bg-white hover:-translate-y-2 hover:scale-110"
+            >
+              <img v-bind:src="task.image" class="h-44 w-36" />
+              {{ task.title }}
             </button>
           </div>
-
 
           <!-- click like -->
           <div>
-            <button v-on:click="toggleDone(index)" :class="{done: task.done}"
-              class="justify-end text-white duration-500 ease-in-out transform text-whtransition-colors material-icons hover:text-red-600 ">
+            <button
+              v-on:click="toggleDone(index)"
+              :class="{ done: task.done }"
+              class="justify-end text-white duration-500 ease-in-out transform text-whtransition-colors material-icons hover:text-red-600"
+            >
               <!-- fill-current text-white transition-colors duration-500 ease-in-out hover:text-red-600 transform hover:-translate-y-1 hover:scale-110 -->
-               <i class="material-icons">add_box</i>
-              
+              <i class="material-icons">add_box</i>
             </button>
-
           </div>
-
         </div>
-      </div> 
-
+      </div>
     </div>
- 
   </div>
-
-
 </template>
 <script>
 // @ is an alias to /src
@@ -81,23 +64,24 @@ export default {
   // },
     data() {
         return {
-            tasks: [{title: '1',button:'like1',image:'https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg',done: false},
-                    {title: '2',button:'like2',image:'https://i.pinimg.com/564x/82/48/62/824862b8ca0df77ed14177df4d87183e.jpg', done: false},
-                    {title: '3',button:'like3',image:'https://i.pinimg.com/564x/d8/2b/1f/d82b1f322c8c19d21f9e86330ae29238.jpg', done: false},
-                    {title: '4',button:'like3',image:'https://i.pinimg.com/564x/ee/ce/58/eece5854fb32ce00aab8f9b7340ea68e.jpg', done: false},
-                    {title: '5',button:'like3',image:'https://i.pinimg.com/564x/27/20/79/272079e14f29532c4361e5dee47599d8.jpg', done: false},
-                    {title: '6',button:'like3',image:'https://i.pinimg.com/564x/4a/91/2f/4a912fca3e6e245669398f92e01c953c.jpg', done: false},
-                    {title: '7',button:'like3',image:'https://i.pinimg.com/564x/0b/59/01/0b59016dc9e04c37cb5ff859c75b155e.jpg', done: false},
-                    {title: '8',button:'like3',image:'https://i.pinimg.com/564x/fe/e8/e9/fee8e955928083298debe3cb06202932.jpg', done: false},
-                    {title: '9',button:'like3',image:'https://i.pinimg.com/564x/41/a6/42/41a642f170d71a39f3655f66c555b4d6.jpg', done: false}
+            tasks: [{id:123,title: 'Harmony Bear',type:'INFP',image:'https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg',done: false,price:299},
+                    {id:456,title: 'Tenderheart',type:'ENFJ',image:'https://i.pinimg.com/564x/82/48/62/824862b8ca0df77ed14177df4d87183e.jpg', done: false,price:289},
+                    {id:789,title: 'Funshine Bear',type:'ESPF',image:'https://i.pinimg.com/564x/d8/2b/1f/d82b1f322c8c19d21f9e86330ae29238.jpg', done: false,price:312},
+                    {id:101,title: 'Bedtime Bear',type:'INFP',image:'https://i.pinimg.com/564x/ee/ce/58/eece5854fb32ce00aab8f9b7340ea68e.jpg', done: false,price:289},
+                    {id:112,title: 'Secrect Bear',type:'ISTJ',image:'https://i.pinimg.com/564x/27/20/79/272079e14f29532c4361e5dee47599d8.jpg', done: false,price:350},
+                    {id:131,title: 'Cheer Bear',type:'INFJ',image:'https://i.pinimg.com/564x/4a/91/2f/4a912fca3e6e245669398f92e01c953c.jpg', done: false,price:359},
+                    {id:415,title: 'Grams Bear',type:'ISFJ',image:'https://i.pinimg.com/564x/0b/59/01/0b59016dc9e04c37cb5ff859c75b155e.jpg', done: false,price:399},
+                    {id:161,title: 'Good luck Bear',type:'ESTP',image:'https://i.pinimg.com/564x/fe/e8/e9/fee8e955928083298debe3cb06202932.jpg', done: false,price:345},
+                    {id:718,title: 'Wish Bear',type:'INTJ',image:'https://i.pinimg.com/564x/41/a6/42/41a642f170d71a39f3655f66c555b4d6.jpg', done: false,price:311}
                 ],
+                
                 input: {
                     isSearch: false,
                     searchText: '',
                 },
                  preview: {
                     isShowPreview: false,
-                    previewSrc: ''
+                    previewSrc: ' '
                  }   
                 
                 
@@ -105,22 +89,26 @@ export default {
         }
     },
     methods: {
-        toggleDone(index){
-            this.tasks[index].done = !this.tasks[index].done
-            //sent data to basket
+        // toggleDone(index){
+        //     this.tasks[index].done = false;
             
-        },
+        //     //sent data to basket
+            
+            
+        // },
        
-        showPreview(index){
+        async showPreview(index){
             this.preview.isShowPreview = true;
             this.preview.previewSrc = this.tasks[index].image;
+            console.log(index)
+            // console.log(this.tasks[index].image)
             // document.getElementById("open").style.display = "block";
         },
         
     
-        countLike(){
-            return this.tasks.filter(t => t.done).length;
-        },
+        // countLike(){
+        //     return this.tasks.filter(t => t.done).length;
+        // },
         // keyupEnter(){
         //     return this.tasks.filter(tasks =>{return tasks.title.toLowerCase().includes(this.input.searchText.toLowerCase())});
         // },
@@ -130,29 +118,28 @@ export default {
 </script>
 <style scoped>
 div.gallery {
-    margin: 20px;
-    /* border: 5px solid rgb(255, 182, 192); */
-    float: left;
-    width: 180px;
-    /* padding: 100px; */
-    background-color: #b9ddfffd;
-    text-align: center;
-    align-items: center;
-    
-    
-    
-  }
-div.preview{
-  
-  background-color: rgba(7, 1, 1, 0.548);
-  
-  
-
+  margin: 20px;
+  /* border: 5px solid rgb(255, 182, 192); */
+  float: left;
+  width: 180px;
+  /* padding: 100px; */
+  background-color: #b9ddfffd;
+  text-align: center;
+  align-items: center;
 }
-.w3-third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
-.w3-third img:hover{opacity: 1}
-  
-  /* div.gallery:hover {
+div.preview {
+  background-color: rgba(7, 1, 1, 0.548);
+}
+.w3-third img {
+  margin-bottom: -6px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+.w3-third img:hover {
+  opacity: 1;
+}
+
+/* div.gallery:hover {
     border: 1px solid #777;
   }
   
@@ -166,13 +153,12 @@ div.preview{
     text-align: center;
   } */
 
-  .like{
-    color: rgb(214, 82, 174);  
-  }
-  .done {
-    
-    color: rgb(255, 0, 0) ;
-    text-align: center;
-    align-content: center;
+.like {
+  color: rgb(214, 82, 174);
+}
+.done {
+  color: rgb(255, 0, 0);
+  text-align: center;
+  align-content: center;
 }
 </style>
