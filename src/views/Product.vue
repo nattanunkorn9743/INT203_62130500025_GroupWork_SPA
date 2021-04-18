@@ -5,7 +5,11 @@
       <!-- <div class="p-2 text-4xl font-bold text-center bg-gradient-to-r from-purple-300 via-pink-500 to-blue-300">Gallery
         ( {{countLike}} )</div> -->
 
-      <div v-for="(task,index) in tasks" :key="task.title" class="items-center">
+      <div
+        v-for="(task, index) in tasks"
+        :key="task.title"
+        class="items-center"
+      >
         <!-- preview -->
         <div v-show="preview.isShowPreview">
           <div
@@ -33,14 +37,14 @@
               class="transition duration-500 ease-in-out transform bg-blue-400 justify-items-start hover:bg-white hover:-translate-y-2 hover:scale-110"
             >
               <img v-bind:src="task.image" class="h-44 w-36" />
-              {{ task.title }}
+              {{ tasks.title }}
             </button>
           </div>
 
           <!-- click like -->
           <div>
             <button
-              v-on:click="toggleDone(index)"
+              v-on:click="addProduct(index)"
               :class="{ done: task.done }"
               class="justify-end text-white duration-500 ease-in-out transform text-whtransition-colors material-icons hover:text-red-600"
             >
@@ -82,36 +86,53 @@ export default {
                  preview: {
                     isShowPreview: false,
                     previewSrc: ' '
-                 }   
+                 },
+                 
+            products: [
+      
+            ]
+                      
+                } 
                 
                 
             // pic:[{pic1:}]
-        }
-    },
-    methods: {
-        // toggleDone(index){
-        //     this.tasks[index].done = false;
-            
-        //     //sent data to basket
-            
-            
-        // },
-       
-        async showPreview(index){
-            this.preview.isShowPreview = true;
-            this.preview.previewSrc = this.tasks[index].image;
-            console.log(index)
-            // console.log(this.tasks[index].image)
-            // document.getElementById("open").style.display = "block";
         },
+    methods: {
+        async addProduct(index){
+        // if (this.password == this.confirm_password){
+           const basket = {
+            id: this.tasks[index].id,
+            title: this.tasks[index].title,
+            type: this.tasks[index].type,
+            price:this.tasks[index].price,   
+        }
+        const response = await fetch('http://localhost:5000/product',{
+          method: 'POST',
+          headers:{
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify({
+            product_id: basket.id,
+            product_name: basket.title,
+            type: basket.type,
+            price:basket.price,
+           
+            
+          })
+        })
+        // console.log(response.json())
+        const data = await response.json()
+        // console.log(data)
+        this.products = [...this.products,data]
+        console.log(this.products)
+        //  this.tasks.id: null,
+                      // title: '',
+                      // type: '',
+                      // price:null,
         
-    
-        // countLike(){
-        //     return this.tasks.filter(t => t.done).length;
-        // },
-        // keyupEnter(){
-        //     return this.tasks.filter(tasks =>{return tasks.title.toLowerCase().includes(this.input.searchText.toLowerCase())});
-        // },
+      },
+       
+       
 
     }
 };
