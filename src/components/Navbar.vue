@@ -5,8 +5,9 @@
     <div class="flex items-center justify-start py-4">
       <!-- <first> -->
       <div class="ml-32 cursor-pointer">
+        
         <div class="flex flex-row itens-center">
-          <i class="mx-2 text-gray-500 fas fa-sign-in-alt"></i>
+          <!-- <i class="mx-2 text-gray-500 fas fa-sign-in-alt"></i> -->
           <router-link to="/login" class="text-sm font-semibold text-gray-500"
             >Login</router-link
           >
@@ -18,10 +19,21 @@
             >Register</router-link
           >
         </div>
+        <!-- login leaw --> 
+          <div v-show="isLogin" v-on:click="login"
+            to="/basket" class="flex items-center justify-end w-full text-gray-600">
+            <i class="medium material-icons">exit_to_app</i>
+          </div>
+          
         <!-- <second> -->
       </div>
+      <!-- <div class="flex justify-end w-full mr-1 text-black">
+        <i class="medium material-icons">exit_to_app</i>
+      </div> -->
+      
       <router-link
             to="/basket" class="flex items-center justify-end w-full ml-32 mr-32 text-black">
+        <!-- <i class="medium material-icons">exit_to_app</i> -->
         <i class="medium material-icons">local_grocery_store</i>
       </router-link>
     </div>
@@ -80,8 +92,20 @@
 <script>
 export default {
   name: 'Navbar',
-  props: {
-    // msg: String
+  // props: {
+  //   // msg: String
+  // }
+  data() {
+    return {
+      
+      isLogin: false,
+      
+    }
+  },
+  methods: {
+    login(){
+      this.isLogin = true;
+    }
   }
-}
+};
 </script>
