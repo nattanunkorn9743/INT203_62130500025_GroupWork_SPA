@@ -32,62 +32,26 @@
       "email": "fara@hotmail.com",
       "password": "1234",
       "id": 5
+    },
+    {
+      "name": "kam smith",
+      "email": "kam@hotmail.com",
+      "password": "00000",
+      "id": 6
+    },
+    {
+      "name": "jame mar",
+      "email": "jame@hotmail.com",
+      "password": "22222",
+      "id": 7
     }
   ],
   "product": [
     {
-      "product_id": 123,
-      "product_name": "Harmony Bear",
+      "product_id": 111,
+      "product_name": "Harmony X Bear",
       "type": "INFP",
       "price": 299
-    },
-    {
-      "product_id": 456,
-      "product_name": "Tenderheart",
-      "type": "ENFJ",
-      "price": 289
-    },
-    {
-      "product_id": 789,
-      "product_name": "Funshine Bear",
-      "type": "ESPF",
-      "price": 312
-    },
-    {
-      "product_id": 101,
-      "product_name": "Bedtime Bear",
-      "type": "INFP",
-      "price": 289
-    },
-    {
-      "product_id": 112,
-      "product_name": "Secrect Bear",
-      "type": "ISTJ",
-      "price": 350
-    },
-    {
-      "product_id": 131,
-      "product_name": "Cheer Bear",
-      "type": "INFJ",
-      "price": 359
-    },
-    {
-      "product_id": 415,
-      "product_name": "Grams Bear",
-      "type": "ISFJ",
-      "price": 399
-    },
-    {
-      "product_id": 161,
-      "product_name": "Good luck Bear",
-      "type": "ESTP",
-      "price": 345
-    },
-    {
-      "product_id": 718,
-      "product_name": "Wish Bear",
-      "type": "INTJ",
-      "price": 311
     }
   ]
 }
