@@ -2,13 +2,6 @@
   <div class="flex flex-wrap justify-center w-full">
     <!-- Register Section -->
     <div class="flex flex-col w-full md:w-1/2">
-      <div
-        class="flex justify-center pt-12 md:justify-start md:pl-12 md:-mb-12"
-      >
-        <a href="#" class="p-4 text-xl font-bold text-white bg-blue-900"
-          >Logo</a
-        >
-      </div>
 
       <div
         class="flex flex-col justify-center px-8 pt-8 my-auto md:justify-start md:pt-0 md:px-24 lg:px-32"
@@ -44,18 +37,17 @@
               class="w-full px-3 py-2 mt-1 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             />
           </div>
-
           <div class="flex flex-col pt-4">
-            <label for="confirm-password" class="text-lg"
-              >Confirm Password</label
-            >
+            <label for="id" class="text-lg">YOUR ID</label>
             <input
-              type="password"
-              v-model="confirm_password"
-              placeholder="Password"
+              type="id"
+              v-model="id"
+              placeholder="your id"
               class="w-full px-3 py-2 mt-1 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             />
           </div>
+
+          
 
           <input
             type="submit"
@@ -92,10 +84,11 @@ export default {
   },
   data() {
     return {
+      id:null,
       name: '',
       email: '',
       password: '',
-      confirm_password: '',
+      
       db:'http://localhost:5000/Users',
       Users: [
       
@@ -104,8 +97,9 @@ export default {
   },
   methods: {
     async updateUser() {
-        if (this.password == this.confirm_password){
+      
            const user = {
+            id: this.id,
             names: this.name,
             emails:this.email,
             passwords:this.password
@@ -118,25 +112,27 @@ export default {
             'Content-type': 'application/json'
           },
           body: JSON.stringify({
+            id: user.id,
             name: user.names,
             email: user.emails,
             password : user.passwords,
             
           })
         })
+        
         const data = await response.json()
+        console.log(data)
         this.Users = [...this.Users,data]
+        this.id=null
         this.name = ''
         this.email = ''
-        this.password = '',
-        this.confirm_password = ''
+        this.password = ''
+        
         
       
         
           
-        }else{
-            alert("your password are indirect")
-          }
+        
         
        
 
