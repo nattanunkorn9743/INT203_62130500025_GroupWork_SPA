@@ -1,22 +1,93 @@
 {
-  "User": [
+  "Users": [
     {
       "id": 1,
       "name": "Patorn bunsawat",
-      "email":"patorn@hotmail.com",
+      "email": "patorn@hotmail.com",
+      "password": "dan123",
       "wallet": 2000
     },
     {
       "id": 2,
       "name": "Nattanunkorn bunsawat",
-      "email":"nattanunkorn@hotmail.com",
+      "email": "nattanunkorn@hotmail.com",
+      "password": "cake123",
       "wallet": 5000
     },
     {
-        "id": 3,
-        "name": "Karn kamol",
-        "email":"karn@hotmail.com",
-        "wallet": 4000
-      }
+      "id": 3,
+      "name": "Karn kamol",
+      "email": "karn@hotmail.com",
+      "password": "karn123",
+      "wallet": 4000
+    },
+    {
+      "name": "anuwat ",
+      "email": "anuwat@hotmail.com",
+      "password": "098",
+      "id": 4
+    },
+    {
+      "name": "fara nunnn",
+      "email": "fara@hotmail.com",
+      "password": "1234",
+      "id": 5
+    }
+  ],
+  "product": [
+    {
+      "product_id": 123,
+      "product_name": "Harmony Bear",
+      "type": "INFP",
+      "price": 299
+    },
+    {
+      "product_id": 456,
+      "product_name": "Tenderheart",
+      "type": "ENFJ",
+      "price": 289
+    },
+    {
+      "product_id": 789,
+      "product_name": "Funshine Bear",
+      "type": "ESPF",
+      "price": 312
+    },
+    {
+      "product_id": 101,
+      "product_name": "Bedtime Bear",
+      "type": "INFP",
+      "price": 289
+    },
+    {
+      "product_id": 112,
+      "product_name": "Secrect Bear",
+      "type": "ISTJ",
+      "price": 350
+    },
+    {
+      "product_id": 131,
+      "product_name": "Cheer Bear",
+      "type": "INFJ",
+      "price": 359
+    },
+    {
+      "product_id": 415,
+      "product_name": "Grams Bear",
+      "type": "ISFJ",
+      "price": 399
+    },
+    {
+      "product_id": 161,
+      "product_name": "Good luck Bear",
+      "type": "ESTP",
+      "price": 345
+    },
+    {
+      "product_id": 718,
+      "product_name": "Wish Bear",
+      "type": "INTJ",
+      "price": 311
+    }
   ]
 }
