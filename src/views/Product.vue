@@ -104,27 +104,33 @@ export default {
             id: this.tasks[index].id,
             title: this.tasks[index].title,
             type: this.tasks[index].type,
-            price:this.tasks[index].price,   
+            price:this.tasks[index].price, 
+            
+            // id: 222,
+            // title: "3baer",
+            // type:"INRE",
+            // price:111,  
         }
-        const response = await fetch('http://localhost:5000/product',{
+        const response = await fetch('http://localhost:5000/products',{
           method: 'POST',
           headers:{
             'Content-type': 'application/json'
           },
           body: JSON.stringify({
-            product_id: basket.id,
+            id: basket.id,
             product_name: basket.title,
             type: basket.type,
             price:basket.price,
+            
            
             
           })
         })
         // console.log(response.json())
         const data = await response.json()
-        // console.log(data)
+      // alert(data)
         this.products = [...this.products,data]
-        console.log(this.products)
+        // console.log(this.products)
         //  this.tasks.id: null,
                       // title: '',
                       // type: '',
