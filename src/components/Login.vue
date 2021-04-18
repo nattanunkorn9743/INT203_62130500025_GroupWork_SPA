@@ -47,8 +47,8 @@
               >Forgot your password?</a
             >
           </div>
-
-          <input
+<!-- :showLogin ="isShow" -->
+          <input  @click="showLogin"
             class="py-2 font-bold text-white transition duration-200 bg-indigo-900 rounded shadow-lg hover:bg-indigo-500 hover:shadow-xl"
             type="submit"
             value="Sign in"
@@ -74,16 +74,17 @@
 </template>
 <script>
 // @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
+// import NavBar from "@/components/Navbar.vue";
 
 export default {
   name: 'Login',
   components: {
-    // HelloWorld
-  },
+    // NavBar
+  }
+  ,
   data() {
     return {
-      
+      isShow:false,
       email: '',
       password: '',
       isHas : false,
@@ -92,6 +93,9 @@ export default {
       ]
     }
   },
+  // props: {
+  //   msg: false
+  // },
   methods: {
     
     async checkUser() {
@@ -113,34 +117,10 @@ export default {
         }catch{
             alert("Error to sign in")
         }
-       
-        // checkTo(data);
-        
-        
-
-        
-    //    try{
-        //    console.log(this.email+" //"+this.password)
-        //   const response = await fetch('this.db') 
-        //   const data = await response.json()
-        //   console.log(data)
-        //   return data
-        //   const db = await data.Users.email
-        //   return console.log(db)
-        //   data.forEach(data =>{
-        //     // for(var i = 0; i < data.length; i++) {
-        //       if(data.Users.email == this.email && data.Users.password == this.password){
-        //          alert("sccess") 
-        //       }else{
-        //          this.isHas = true; 
-        //          console.log(data.Users.email)
-        //           }
-        //   }
-        //   )
-    //    }catch (e){
-        //    alert("Error ka")
-    //    }
-    
+  },
+  showLogin() {
+    // this.props.msg = true;
+    this.$emit('clickSign')
   }
 }
 }
