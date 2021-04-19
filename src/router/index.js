@@ -3,6 +3,7 @@ import Home from "../views/Home.vue";
 import Register from "../views/Register.vue";
 import aboutUs from "../views/aboutUs.vue";
 import StoreLo from "../views/StoreLo.vue";
+import InForm from "../views/inForm.vue";
 import Login from "../components/Login.vue";
 import Basket from "../components/Basket.vue";
 
@@ -11,6 +12,11 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: "/inForm",
+    name: "InForm",
+    component: InForm,
   },
   {
     path: "/storelocation",
@@ -37,6 +43,7 @@ const routes = [
     name: "Basket",
     component: Basket,
   },
+  
   {
     path: "/product",
     name: "Product",

@@ -48,7 +48,8 @@
             >
           </div>
 <!-- :showLogin ="isShow" -->
-          <input  @click="showLogin"
+<!-- @click="showLogin" -->
+          <input  
             class="py-2 font-bold text-white transition duration-200 bg-indigo-900 rounded shadow-lg hover:bg-indigo-500 hover:shadow-xl"
             type="submit"
             value="Sign in"
@@ -118,10 +119,10 @@ export default {
             alert("Error to sign in")
         }
   },
-  showLogin() {
-    // this.props.msg = true;
-    this.$emit('clickSign')
-  }
+  // showLogin() {
+  //   // this.props.msg = true;
+  //   this.$emit('clickSign')
+  // }
 }
 }
 </script>

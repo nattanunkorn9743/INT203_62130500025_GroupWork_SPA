@@ -125,6 +125,7 @@ export default {
           })
         })
         const data = await response.json()
+        console.log(data)
         this.Users = [...this.Users,data]
         this.name = ''
         this.email = ''
@@ -139,25 +140,7 @@ export default {
           }
         
        
-//       this.invalidNameInput = this.enteredName === '' ? true : false
-//       this.invalidRatingInput = this.rating === null ? true : false
-//       console.log(`name value: ${this.enteredName}`)
-//       console.log(`rating value: ${this.rating}`)
-//       console.log(`invalid name: ${this.invalidNameInput}`)
-//       console.log(`invalid rating: ${this.invalidRatingInput}`)
-//     },
-//     validateName() {
-//       this.invalidNameInput = this.enteredName === '' ? true : false
-//       console.log(`name: ${this.invalidNameInput}`)
-//     },
-//     async fetchUser() {
-//       const res = await fetch('http://localhost:5000/Users')
-//       const data = await res.json()
-//       return data
-//     }
-//   },
-//   async created() {
-//     this.surveyResults = await this.fetchSurveyResult()
+
   }
 }
 }

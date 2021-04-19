@@ -7,7 +7,7 @@
 
 		<div class="text-center md:p-6 lg:text-left">
 			<!-- Image for mobile view-->
-			<div class="block w-48 h-48 mx-auto -mt-16 bg-center bg-cover rounded-full shadow-xl lg:hidden" style="background-image: url('https://source.unsplash.com/MP0IUfwrn0A')"></div>
+			<div class="block w-48 h-48 mx-auto -mt-16 bg-center bg-cover rounded-full shadow-xl lg:hidden" style="background-image: url('https://th.bing.com/th/id/OIP.DEkuErs0ROyDNxGjfAfihAHaEK?pid=ImgDet&rs=1')"></div>
 			
 			<h1 class="pt-8 text-3xl font-bold lg:pt-0">Care Bear Be Friend</h1>
 			<div class="w-4/5 pt-3 mx-auto border-b-2 border-green-500 opacity-25 lg:mx-0"></div>
