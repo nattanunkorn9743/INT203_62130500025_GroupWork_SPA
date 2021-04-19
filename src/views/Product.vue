@@ -11,7 +11,7 @@
         class="items-center"
       >
         <!-- preview -->
-        <div v-show="preview.isShowPreview">
+        <div v-show="task.done">
           <div
             class="fixed inset-0 z-40 flex items-center object-fill object-center overflow-auto animated"
           >
@@ -37,7 +37,7 @@
               class="transition duration-500 ease-in-out transform bg-blue-400 justify-items-start hover:bg-white hover:-translate-y-2 hover:scale-110"
             >
               <img v-bind:src="task.image" class="h-44 w-36" />
-              {{ tasks.title }}
+              <div class="text-2xl">{{ tasks.title }}</div>
             </button>
           </div>
 
@@ -137,6 +137,11 @@ export default {
                       // price:null,
         
       },
+      showPreview(index){
+        this.tasks[index].done = true
+        this.preview.previewSrc = this.tasks[index].image
+        
+      }
        
        
 
