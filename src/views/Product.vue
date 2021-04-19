@@ -1,10 +1,7 @@
 <template>
   <div class="product">
     <div class="max-w-4xl mx-auto my-10 justify-items-center justify">
-      <!-- Topic -->
-      <!-- <div class="p-2 text-4xl font-bold text-center bg-gradient-to-r from-purple-300 via-pink-500 to-blue-300">Gallery
-        ( {{countLike}} )</div> -->
-
+     
       <div
         v-for="(task, index) in tasks"
         :key="task.title"
@@ -13,17 +10,28 @@
         <!-- preview -->
         <div v-show="task.done">
           <div
-            class="fixed inset-0 z-40 flex items-center object-fill object-center overflow-auto animated"
+            class="fixed inset-0 z-40 flex object-fill object-center overflow-auto animated"
           >
             <div
-              class="fixed flex flex-col justify-end w-full max-w-md p-8 m-auto align-top bg-blue-400 rounded shadow-2xl animated fadeInUp md:relative pin-b pin-x"
+              class="fixed w-full max-w-md m-auto align-top bg-blue-400 rounded shadow-2xl animated fadeInUp md:relative pin-b pin-x"
             >
-              <div class="m-10 border-8 rounded shadow-xl">
+              <div
+                class="flex justify-end m-2 text-white material-icons"
+                v-on:click="close(index)"
+              >
+                highlight_off
+              </div>
+              <div class="m-5 border-8 rounded shadow-xl">
                 <!--  picture -->
-                <div class="text-center">
-                  <img :src="preview.previewSrc" class="my-24 img-responsive" />
-                  <p>{{ task.title }}</p>
-                </div>
+                <!-- <div class="flex-1 text-2xl text-white pl-14"> -->
+                <img :src="preview.previewSrc" class="justify-center img-responsive pl-14" />
+                <p class="flex-auto text-3xl font-semibold text-center text-white">
+                  {{ task.title }}
+                </p>
+                <p class="font-semibold text-center text-white flex-autotext-sm">
+                  {{ task.price }} BATH
+                </p>
+                <!-- </div> -->
               </div>
             </div>
           </div>
@@ -34,7 +42,7 @@
           <div>
             <button
               v-on:click="showPreview(index)"
-              class="transition duration-500 ease-in-out transform bg-blue-400 justify-items-start hover:bg-white hover:-translate-y-2 hover:scale-110"
+              class="transition duration-500 ease-in-out transform justify-items-start hover:-translate-y-2 hover:scale-110"
             >
               <img v-bind:src="task.image" class="h-44 w-36" />
               <div class="text-2xl">{{ tasks.title }}</div>
@@ -66,86 +74,142 @@ export default {
   // components: {
   //   // HelloWorld,
   // },
-    data() {
-        return {
-            tasks: [{id:123,title: 'Harmony Bear',type:'INFP',image:'https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg',done: false,price:299},
-                    {id:456,title: 'Tenderheart',type:'ENFJ',image:'https://i.pinimg.com/564x/82/48/62/824862b8ca0df77ed14177df4d87183e.jpg', done: false,price:289},
-                    {id:789,title: 'Funshine Bear',type:'ESPF',image:'https://i.pinimg.com/564x/d8/2b/1f/d82b1f322c8c19d21f9e86330ae29238.jpg', done: false,price:312},
-                    {id:101,title: 'Bedtime Bear',type:'INFP',image:'https://i.pinimg.com/564x/ee/ce/58/eece5854fb32ce00aab8f9b7340ea68e.jpg', done: false,price:289},
-                    {id:112,title: 'Secrect Bear',type:'ISTJ',image:'https://i.pinimg.com/564x/27/20/79/272079e14f29532c4361e5dee47599d8.jpg', done: false,price:350},
-                    {id:131,title: 'Cheer Bear',type:'INFJ',image:'https://i.pinimg.com/564x/4a/91/2f/4a912fca3e6e245669398f92e01c953c.jpg', done: false,price:359},
-                    {id:415,title: 'Grams Bear',type:'ISFJ',image:'https://i.pinimg.com/564x/0b/59/01/0b59016dc9e04c37cb5ff859c75b155e.jpg', done: false,price:399},
-                    {id:161,title: 'Good luck Bear',type:'ESTP',image:'https://i.pinimg.com/564x/fe/e8/e9/fee8e955928083298debe3cb06202932.jpg', done: false,price:345},
-                    {id:718,title: 'Wish Bear',type:'INTJ',image:'https://i.pinimg.com/564x/41/a6/42/41a642f170d71a39f3655f66c555b4d6.jpg', done: false,price:311}
-                ],
-                
-                input: {
-                    isSearch: false,
-                    searchText: '',
-                },
-                 preview: {
-                    isShowPreview: false,
-                    previewSrc: ' '
-                 },
-                 
-            products: [
-      
-            ]
-                      
-                } 
-                
-                
-            // pic:[{pic1:}]
+  data() {
+    return {
+      tasks: [
+        {
+          id: 123,
+          title: "Harmony Bear",
+          type: "INFP",
+          image:
+            "https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg",
+          done: false,
+          price: 299,
         },
-    methods: {
-        async addProduct(index){
-        // if (this.password == this.confirm_password){
-           const basket = {
-            id: this.tasks[index].id,
-            title: this.tasks[index].title,
-            type: this.tasks[index].type,
-            price:this.tasks[index].price, 
-            
-            // id: 222,
-            // title: "3baer",
-            // type:"INRE",
-            // price:111,  
-        }
-        const response = await fetch('http://localhost:5000/products',{
-          method: 'POST',
-          headers:{
-            'Content-type': 'application/json'
-          },
-          body: JSON.stringify({
-            id: basket.id,
-            product_name: basket.title,
-            type: basket.type,
-            price:basket.price,
-            
-           
-            
-          })
-        })
-        // console.log(response.json())
-        const data = await response.json()
-      // alert(data)
-        this.products = [...this.products,data]
-        // console.log(this.products)
-        //  this.tasks.id: null,
-                      // title: '',
-                      // type: '',
-                      // price:null,
+        {
+          id: 456,
+          title: "Tenderheart",
+          type: "ENFJ",
+          image:
+            "https://i.pinimg.com/564x/82/48/62/824862b8ca0df77ed14177df4d87183e.jpg",
+          done: false,
+          price: 289,
+        },
         
-      },
-      showPreview(index){
-        this.tasks[index].done = true
-        this.preview.previewSrc = this.tasks[index].image
-        
-      }
-       
-       
+        {
+          id: 101,
+          title: "Bedtime Bear",
+          type: "INFP",
+          image:
+            "https://i.pinimg.com/564x/ee/ce/58/eece5854fb32ce00aab8f9b7340ea68e.jpg",
+          done: false,
+          price: 289,
+        },
+        {
+          id: 112,
+          title: "Secrect Bear",
+          type: "ISTJ",
+          image:
+            "https://i.pinimg.com/564x/27/20/79/272079e14f29532c4361e5dee47599d8.jpg",
+          done: false,
+          price: 350,
+        },
+        {
+          id: 131,
+          title: "Cheer Bear",
+          type: "INFJ",
+          image:
+            "https://i.pinimg.com/564x/4a/91/2f/4a912fca3e6e245669398f92e01c953c.jpg",
+          done: false,
+          price: 359,
+        },
+        {
+          id: 415,
+          title: "Grams Bear",
+          type: "ISFJ",
+          image:
+            "https://i.pinimg.com/564x/0b/59/01/0b59016dc9e04c37cb5ff859c75b155e.jpg",
+          done: false,
+          price: 399,
+        },
+        {
+          id: 161,
+          title: "Good luck Bear",
+          type: "ESTP",
+          image:
+            "https://i.pinimg.com/564x/fe/e8/e9/fee8e955928083298debe3cb06202932.jpg",
+          done: false,
+          price: 345,
+        },
+        {
+          id: 718,
+          title: "Wish Bear",
+          type: "INTJ",
+          image:
+            "https://i.pinimg.com/564x/41/a6/42/41a642f170d71a39f3655f66c555b4d6.jpg",
+          done: false,
+          price: 311,
+        },
+      ],
 
-    }
+      input: {
+        isSearch: false,
+        searchText: "",
+      },
+      preview: {
+        // isShowPreview: false,
+        previewSrc: " ",
+      },
+
+      products: [],
+    };
+
+    // pic:[{pic1:}]
+  },
+  methods: {
+    async addProduct(index) {
+      // if (this.password == this.confirm_password){
+      const basket = {
+        id: this.tasks[index].id,
+        title: this.tasks[index].title,
+        type: this.tasks[index].type,
+        price: this.tasks[index].price,
+
+        // id: 222,
+        // title: "3baer",
+        // type:"INRE",
+        // price:111,
+      };
+      const response = await fetch("http://localhost:5000/products", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          id: basket.id,
+          product_name: basket.title,
+          type: basket.type,
+          price: basket.price,
+        }),
+      });
+      // console.log(response.json())
+      const data = await response.json();
+      // alert(data)
+      this.products = [...this.products, data];
+      // console.log(this.products)
+      //  this.tasks.id: null,
+      // title: '',
+      // type: '',
+      // price:null,
+    },
+    showPreview(index) {
+      this.tasks[index].done = true;
+      this.preview.previewSrc = this.tasks[index].image;
+    },
+    close(index) {
+      this.tasks[index].done = false;
+    },
+  },
 };
 </script>
 <style scoped>
@@ -155,7 +219,7 @@ div.gallery {
   float: left;
   width: 180px;
   /* padding: 100px; */
-  background-color: #b9ddfffd;
+  background-color: #a4d3fffd;
   text-align: center;
   align-items: center;
 }
