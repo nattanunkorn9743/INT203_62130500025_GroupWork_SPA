@@ -5,9 +5,13 @@
       <div
         class="flex justify-center pt-12 md:justify-start md:pl-12 md:-mb-12"
       >
-        <a href="#" class="p-4 text-xl font-bold text-white bg-blue-900"
-          >Logo</a
-        >
+        <!-- <a href="#" class="p-2 text-xl font-bold text-white bg-blue-900"
+          ><img
+        src="https://media.giphy.com/media/IeonNo1t6ivFMAnVi5/giphy.gif"
+        class="w-32 h-32 border-blue-300 "
+      />
+          </a
+        > -->
       </div>
 
       <div
