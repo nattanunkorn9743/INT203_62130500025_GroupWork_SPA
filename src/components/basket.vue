@@ -11,16 +11,20 @@
       <div class="flex justify-end material-icons" @click="close">
         highlight_off
       </div>
+      <div class="flex justify-end material-icons" @click="callProduct()">
+       highlight_off
+      </div>
 
       
-      <div class="lex-wrap p-9 justify-items-start max-w-7xl">
-        <div>1.name is ....<img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div>
+      <ul id='basket' class="lex-wrap p-9 justify-items-start max-w-7xl">
+        <h1 class="text-4xl text-white">What's in your basket</h1>
+        <!-- <div>1.name is ....<img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div>
         <div>2 <img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div>
         <div>3<img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div>
         <div>4<img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div>
         <div>5<img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div>
-        <div>6<img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div>
-      </div>
+        <div>6<img class="max-h-36" src="https://i.pinimg.com/564x/5a/cf/c1/5acfc18479a81b506f9651bd1dae7f22.jpg"></div> -->
+      </ul>
     </div>
   </div>
 </template>
@@ -42,6 +46,32 @@ export default {
           bk.style.display = "none";
         //   <router-link to="/"></router-link>
        
+      },
+       callProduct(){
+         try{
+         let basket = document.querySelector('#basket')
+         fetch('http://localhost:5000/products')
+        .then(response => response.json())
+        .then(data => data.forEach(
+           val => {
+             let bas = document.createElement('li');
+               bas.innerText = `Product id : ${val.id} 
+                                name :${val.product_name} 
+                                type :${val.type} 
+                                Price :${val.price}
+                                ..........................
+                                `
+              bas.style.color = "white"
+              bas.style.borderStyle = "dashed"
+              bas.style.borderColor = "black"
+              bas.style.margin = "10px 10px 10px 10px";
+              // bas.style.backgroundColor = "black"
+               basket.appendChild(bas)
+           } 
+        ))  
+        }catch{
+            alert("Error to sign in")
+        }
       }
   }
 };
