@@ -3,8 +3,11 @@
     <!-- <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" /> -->
     <div class="flex flex-col items-center justify-center">
-      
-      </div>
+      <img
+        src="https://media.giphy.com/media/IeonNo1t6ivFMAnVi5/giphy.gif"
+        class="h-screen m-24 mt-5 border-8 border-blue-300 w-sreen"
+      />
+    </div>
   </div>
 </template>
 
