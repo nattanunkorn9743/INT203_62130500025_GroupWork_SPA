@@ -72,16 +72,17 @@
           >
             About us
           </router-link>
-          <div
+          <router-link
+            to = "/howto"
             class="flex-auto p-3 m-2 text-sm font-semibold text-center uppercase min-w-64 hover:bg-blue-900 hover:text-white"
           >
             How to orders
-          </div>
+          </router-link>
           <router-link 
           to="/inForm"
             class="flex-auto p-3 m-2 text-sm font-semibold text-center uppercase min-w-64 hover:bg-blue-900 hover:text-white"
           >
-            INFORMATON
+            Your INFORMATON
           </router-link>
         </div>
       </nav>
