@@ -16,21 +16,26 @@
             class="text-sm font-semibold text-gray-500"
             >Register</router-link
           >
-          <div
+          <div v-show="isBas" @emitApp="showBas">
+         <div  
             @click="deleteData"
             to="/basket"
             class="flex items-center justify-end w-full ml-3 text-gray-600"
           >
             <i class="medium material-icons">exit_to_app</i>
           </div>
+            
+          </div>
+          
         </div>
         <!-- login leaw -->
         <!-- v-show="isShow" @clickSign="login" -->
 
         <!-- <second> -->
+           <!-- @click="showBas" -->
       </div>
       <div
-        @click="showBas"
+       
         class="flex items-center justify-end w-full ml-32 mr-32 text-black"
       >
         <!-- <i class="medium material-icons">exit_to_app</i> -->
@@ -96,6 +101,9 @@ export default {
   //   props: {
   //     showLogin:Boolean
   // },
+  prop:{
+    test:true,
+  },
   data() {
     return {
       // isLogin: false,
@@ -104,8 +112,9 @@ export default {
     };
   },
   methods: {
-    showBas(){
-      this.isBas = true;
+    showBas(show){
+      this.isBas = show;
+      console.log(navbar)
     },
     // login(){
     //   this.isLogin = true;
@@ -154,6 +163,9 @@ export default {
       //     alert("Error to sign in")
       // }
     }
+    },
+    mounted(){
+      console.log(this.a)
     }
   }
   

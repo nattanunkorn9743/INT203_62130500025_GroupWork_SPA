@@ -89,6 +89,7 @@ export default {
       email: '',
       password: '',
       isHas : false,
+      show:true,
       Users: [
       
       ]
@@ -107,6 +108,7 @@ export default {
            val => {
                if(val.email === this.email && val.password === this.password){
                    alert("You login sccess.Please go to home")
+                   this.showLogin();
                    this.email = ''
                    this.password = ''
                }else {
@@ -115,14 +117,15 @@ export default {
                    }
            } 
         ))  
-        }catch{
+        }catch(err){
+            alert(err)
             alert("Error to sign in")
         }
   },
-  // showLogin() {
-  //   // this.props.msg = true;
-  //   this.$emit('clickSign')
-  // }
+  showLogin() {
+    // this.props.msg = true;
+    this.$emit('clickSign',this.show)
+  }
 }
 }
 </script>

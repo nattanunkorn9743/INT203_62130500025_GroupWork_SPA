@@ -46,24 +46,5 @@
       "id": 7
     }
   ],
-  "products": [
-    {
-      "id": 111,
-      "product_name": "Harmony X Bear",
-      "type": "INFP",
-      "price": 299
-    },
-    {
-      "id": 123,
-      "product_name": "Harmony Bear",
-      "type": "INFP",
-      "price": 299
-    },
-    {
-      "id": 456,
-      "product_name": "Tenderheart",
-      "type": "ENFJ",
-      "price": 289
-    }
-  ]
+  "products": []
 }
