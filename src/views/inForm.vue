@@ -41,7 +41,7 @@
             <label for="id" class="text-lg">YOUR ID</label>
             <input
               type="id"
-              v-model="id"
+              v-model="userId"
               placeholder="your id"
               class="w-full px-3 py-2 mt-1 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             />
@@ -84,12 +84,12 @@ export default {
   },
   data() {
     return {
-      id:null,
+      userId:null,
       name: '',
       email: '',
       password: '',
       
-      db:'http://localhost:5000/Users',
+      db:'http://localhost:5000/Users/',
       Users: [
       
       ]
@@ -106,7 +106,7 @@ export default {
             
             
         }
-        const response = await fetch(this.db,{
+        const response = await fetch(this.db+this.userId,{
           method: 'put',
           headers:{
             'Content-type': 'application/json'
@@ -116,10 +116,12 @@ export default {
             name: user.names,
             email: user.emails,
             password : user.passwords,
+            wallet: null
             
           })
+          
         })
-        
+        console.log(this.userId)
         const data = await response.json()
         console.log(data)
         this.Users = [...this.Users,data]

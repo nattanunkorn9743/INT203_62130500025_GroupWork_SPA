@@ -29,7 +29,7 @@
 
         <!-- <second> -->
       </div>
-      <div 
+      <div
         @click="showBas"
         class="flex items-center justify-end w-full ml-32 mr-32 text-black"
       >
@@ -73,13 +73,13 @@
             About us
           </router-link>
           <router-link
-            to = "/howto"
+            to="/howto"
             class="flex-auto p-3 m-2 text-sm font-semibold text-center uppercase min-w-64 hover:bg-blue-900 hover:text-white"
           >
             How to orders
           </router-link>
-          <router-link 
-          to="/inForm"
+          <router-link
+            to="/inForm"
             class="flex-auto p-3 m-2 text-sm font-semibold text-center uppercase min-w-64 hover:bg-blue-900 hover:text-white"
           >
             Your INFORMATON
@@ -99,7 +99,8 @@ export default {
   data() {
     return {
       // isLogin: false,
-      isBas:false
+      isBas:false,
+      basket:[] 
     };
   },
   methods: {
@@ -113,21 +114,48 @@ export default {
     // this.$emit('show-logout');
     // this.isLogin = true;
     // }
-    async deleteData() {
+   
       //  try{
-      // const res = 
-      await fetch("http://localhost:5000/products", {
-        method: "DELETE",
-      })
-        .then((res) => res.text()) // or res.json()
-        .then((res) => console.log(res));
+      // const res =
+      // const res = await fetch("http://localhost:5000/products", {
+      //   method: "DELETE",
+      // })
+
+      // console.log(res.json())
+    
+      
+        // Awaiting fetch which contains 
+        // method, headers and content-type
+       async deleteData() {
+      //  try{
+      // const res =
+      const getRes = await fetch("http://localhost:5000/products");
+      const getData = await getRes.json();
+      this.basket = getData;
+      console.log(this.basket);
+
+      if(this.basket.length > 0){
+        this.basket.forEach(item => {
+          console.log(item.id)
+          fetch('http://localhost:5000/products/'+item.id,{
+            method : "DELETE"
+          })
+        })
+      }
+
+      // for (let i = 0; this.basket.length > 0; i++) {
+      //   const deleteRes = await fetch("http://localhost:5000/products");
+      //   console.log(deleteRes)
+      // }
       //  .then(response => console.log(response))
       //  .catch(err => console.log(err))
 
       // }catch{
       //     alert("Error to sign in")
       // }
-    },
-  },
-};
+    }
+    }
+  }
+  
+    
 </script>

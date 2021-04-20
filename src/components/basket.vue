@@ -8,11 +8,11 @@
     <div
       class="fixed flex flex-col justify-end m-auto align-top bg-blue-300 rounded shadow-2xl w-6xl hp-8 animated fadeInUp md:relative pin-b pin-x"
     >
-      <div class="flex justify-end material-icons" @click="close">
+      <div class="flex justify-end m-3 material-icons" @click="close">
         highlight_off
       </div>
-      <div class="flex justify-end material-icons" @click="callProduct()">
-       highlight_off
+      <div class="flex justify-end " @click="callProduct()">
+       show basket
       </div>
 
       
